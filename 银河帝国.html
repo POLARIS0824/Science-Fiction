@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>银河帝国 - 介绍</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .hover-zoom1 {
+        transition: transform 0.5s ease;
+    }
+
+    .hover-zoom1:hover {
+        transform: scale(1.1);
+    }
+
+    .hover {
+        transition: transform 0.5s ease;
+    }
+
+    .hover:hover {
+        transform: scale(1.2);
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif; /* 使用系统字体 */
+      background-color: #f8f9fa;
+    }
+
+    .navbar-custom {
+      background-color: #343a40;
+    }
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+      color: #ffffff;
+    }
+
+    .navbar-custom .nav-link:hover {
+      color: #d4d4d4;
+    }
+
+    .featurette-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .featurette-divider {
+      margin: 5rem 0;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .featurette-image {
+      transition: transform 0.3s ease;
+      border-radius: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .featurette-image:hover {
+      transform: scale(1.1);
+    }
+
+    .footer-custom {
+      background-color: #343a40;
+      color: #ffffff;
+      padding: 1rem 0;
+    }
+
+    .footer-custom a {
+      color: #ffffff;
+    }
+
+    .footer-custom a:hover {
+      color: #d4d4d4;
+    }
+
+    .bg-light-shadow {
+      background-color: #f8f9fa;
+      box-shadow: 0 60px 30px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+    <header data-bs-theme="auto">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Science Fiction</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        小说
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="三体.html">三体</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="银河帝国.html">银河帝国</a></li>
+                      </ul>
+                    </li>          
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        电影
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="星际穿越.html">星际穿越</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="沙丘.html">沙丘</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        作家
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="刘慈欣.html">刘慈欣</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index.html#authors-id">20世纪科幻三巨头</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                      <a class="nav-link" href="about.html">关于（先看这个）</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+        </nav>
+    </header>
+
+  <main class="container my-5">
+    <div class="p-5 mb-4 bg-light rounded-3 text-center bg-light-shadow hover-zoom1">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">欢迎来到《银河帝国》介绍页面</h1>
+        <p class="col-md-8 fs-4 mx-auto">《银河帝国》是美国著名科幻作家艾萨克·阿西莫夫（Isaac Asimov）最重要的系列作品之一。</p>
+        <a href="https://zh.wikipedia.org/wiki/%E9%93%B6%E6%B2%B3%E5%B8%9D%E5%9B%BD" target="_blank" class="btn btn-primary btn-lg ms-2">点击跳转维基百科了解更多</a>
+        <a href="https://baike.baidu.com/item/%E9%93%B6%E6%B2%B3%E5%B8%9D%E5%9B%BD" target="_blank" class="btn btn-secondary btn-lg ms-2">点击跳转百度百科了解更多</a>
+      </div>
+    </div>
+
+    <div class="row featurette hover-zoom1" style="margin-top: 100px;">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">基地七部曲 <span class="text-body-secondary">Foundation Series</span></h2>
+        <p class="lead">《银河帝国》是美国著名科幻作家艾萨克·阿西莫夫（Isaac Asimov）的重要系列作品之一。该系列是阿西莫夫“未来史”设定的一部分，与《机器人》系列和《基地》系列共同构建了一个庞大的科幻宇宙。故事围绕人类在银河系扩张和统治的过程展开，描绘了未来几千年的银河帝国历史。</p>
+        <p class="lead">《银河帝国》系列通过描绘人类在银河系中的扩张、统治和衰落，探讨了文明的兴衰、科技的进步以及人类社会的复杂性。阿西莫夫通过这一系列作品，展示了他对未来社会的深刻洞察和对人类命运的思考。</p>
+      </div>
+      <div class="col-md-5 text-center">
+        <img src="images/银河帝国封面.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="350" height="350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: The Galactic Empire Series" preserveAspectRatio="xMidYMid slice" focusable="false">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette hover-zoom1">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">帝国三部曲 <span class="text-body-secondary">Empire Series</span></h2>
+        <p class="lead">《银河帝国三部曲》实际上是艾萨克·阿西莫夫的三部独立科幻小说，分别是《繁星若尘》、《星空暗流》和《宇宙帝国》。它们虽然故事情节相对独立，但都设定在阿西莫夫构建的“银河帝国”宇宙中，描绘了人类在银河系扩张和帝国兴盛时期的社会与科技发展。</p>
+        <p class="lead">这些作品描绘了从地球的边缘化到银河帝国的兴衰，以及个人与社会在宏大历史中的碰撞，是阿西莫夫“未来史”宇宙的重要组成部分。</p>
+      </div>
+      <div class="col-md-5 order-md-1 text-center">
+        <img src="images/帝国.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Foundation" preserveAspectRatio="xMidYMid slice" focusable="false">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette hover-zoom1">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">机器人五部曲 <span class="text-body-secondary">Robot Series</span></h2>
+        <p class="lead">《机器人》系列是阿西莫夫“未来史”设定的重要组成部分，探讨了机器人与人类社会的关系。通过一系列短篇小说和长篇小说，阿西莫夫提出了著名的机器人三定律，并探讨了机器人伦理、人工智能和人类社会的未来。</p>
+        <p class="lead">《机器人》系列通过描绘机器人在未来社会中的角色，探讨了科技进步对人类社会的影响，以及人类与人工智能之间的复杂关系。阿西莫夫通过这一系列作品，展示了他对未来科技和人类社会的深刻洞察。</p>
+      </div>
+      <div class="col-md-5 text-center">
+        <img src="images/机器人.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="350" height="350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Robot Series" preserveAspectRatio="xMidYMid slice" focusable="false">
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-custom text-center py-3">
+    <div class="container">
+      <p class="text-start"><a href="#">回到顶部</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

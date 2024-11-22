@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>关于 | Science Fiction</title>
+
+  <!-- 引入 Bootstrap 样式 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- 其他可能需要的样式 -->
+  <style>
+    .hover-zoom {
+      transition: transform 0.5s ease;
+    }
+
+    .hover-zoom:hover {
+      transform: scale(1.1);
+    }
+
+    body {
+      padding-top: 80px;
+      font-family: Arial, sans-serif;
+    }
+    .hero {
+      background-color: #a49ede8a;
+      padding: 50px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .content {
+      margin: 50px 20px;
+    }
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .content p {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <header data-bs-theme="auto">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Science Fiction</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    小说
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="三体.html">三体</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">银河帝国</a></li>
+                  </ul>
+                </li>          
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    电影
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">星际穿越</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">沙丘</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    作家
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="刘慈欣.html">刘慈欣</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="index.html#authors-id">20世纪科幻三巨头</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link hover-zoom" href="about.html">关于（先看这个）</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </nav>
+  </header>
+
+  <!-- 介绍区 -->
+  <section class="hero hover-zoom">
+    <div class="container">
+      <h1>关于 Science Fiction 网站</h1>
+      <p>探索更多有关科幻小说、电影和推荐的内容</p>
+    </div>
+  </section>
+
+  <!-- 网站功能介绍 -->
+  <section class="content">
+    <div class="container">
+      <h2>网站介绍</h2>
+      <p>欢迎来到 "Science Fiction" 网站！这是HUST新生实践课作业。</p>
+      <p>网站的主要功能包括：</p>
+      <ul>
+        <li>提供经典科幻小说的推荐，如<a href="三体.html">《三体》</a>，<a href="银河帝国.html">《银河帝国》</a></li>
+        <li>展示不同科幻题材的电影和影视作品，帮助用户了解最新的科幻趋势。</li>
+        <li>通过精心挑选的资源，向用户推荐优秀的科幻作品。</li>
+      </ul>
+      <p>致力于为用户提供全面的科幻文化体验，让每一位科幻爱好者都能找到自己喜爱的内容。</p>
+
+      <h2>声明</h2>
+      <p>本网站采用bootstrap框架和响应式布局，可自由缩放页面查看效果。</p>
+      <p>在主页面可以通过右下角按钮切换主题颜色。</p>
+      <p>移动鼠标到图片上有缩放动效。</p>
+      <p>介绍<a href="刘慈欣.html">刘慈欣</a>的页面最为炫酷，做出了字体发光和呼吸效果和逐字显示动画。</p>
+      <p>目前制作了一个主页面，6个子页面，3个offcanvas</p>
+      <p>可移步至<a href="http">GitHub</a>为这个网页添加更多功能！</p>
+      
+      <h3>制作者：2403班康耀燃</h3>
+    </div>
+  </section>
+
+  <!-- 引入 Bootstrap 和其他必需的 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

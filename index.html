@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Carousel Template · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .hover-zoom2 {
+        transition: transform 0.5s ease;
+      }
+
+      .hover-zoom2:hover {
+        transform: scale(1.4);
+      }
+
+      .hover-zoom1 {
+        transition: transform 0.5s ease;
+      }
+
+      .hover-zoom1:hover {
+        transform: scale(1.05);
+      }
+
+      .hover-zoom {
+      transition: transform 0.5s ease;
+      }
+
+      .hover-zoom:hover {
+      transform: scale(1.1);
+      }
+
+      .featurette-text {
+        margin-top: -110px;
+      }
+
+      .featurette-text1 {
+        margin-top: -30px;
+      }
+
+      .zoom-image {
+        transition: transform 0.5s ease;
+      }
+
+      .zoom-image:hover {
+        transform: scale(1.2);
+      }
+      
+      .featurette-image {
+        transition: transform 0.5s ease;
+        border-radius: 1rem;
+        padding-left: 20px; /* 增加左侧内边距 */
+        padding-right: 20px; /* 增加右侧内边距 */
+      }
+
+      .featurette-image:hover {
+        transform: scale(1.2);
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<header data-bs-theme="auto">
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Hello!</strong>
+        <small>刚刚</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        请先阅读关于页面。
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Science Fiction</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">首页</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              小说
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="三体.html">三体</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="银河帝国.html">银河帝国</a></li>
+            </ul>
+          </li>          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              电影
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="星际穿越.html">星际穿越</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="沙丘.html">沙丘</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              作家
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="刘慈欣.html">刘慈欣</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAsimov">艾萨克·阿西莫夫</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasClarke">阿瑟·查尔斯·克拉克 </a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHein">罗伯特·海因莱因</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link hover-zoom" href="about.html">关于（先看这个）</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="offcanvasAsimov" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasLabel">艾萨克·阿西莫夫个人简介</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>艾萨克·阿西莫夫是美国著名的科幻作家和生物化学家，被誉为“科幻文学的泰斗”。他生于俄罗斯，五岁时随家人移民到美国。阿西莫夫的创作生涯跨越了多个领域，他不仅在科幻小说中留下了深远的影响，也在非虚构写作方面作出了重要贡献，尤其在科普读物上。其最为著名的作品是《基地》系列和《机器人》系列，这些作品提出了“机器人三定律”和“基地预言”等重要理念，深入探讨了科技与社会、理性与道德的关系。</p>
+
+      <p>阿西莫夫的写作风格清晰、理性，他的作品通常围绕科学、数学和历史的复杂问题展开。他的《基地》系列被认为是科幻史上的里程碑之一，展现了一个庞大且系统化的银河帝国衰落和重建的过程。而《机器人》系列则探索了人工智能、机器伦理及人类未来的可能性。阿西莫夫对未来社会的预测以及他对于人类理性和社会秩序的思考，仍然对今天的科技伦理和科幻创作产生深远影响。</p>
+
+      <p>除了科幻创作，阿西莫夫还写了大量的科普书籍和文章，涉及物理学、天文学、历史等多个领域。他的作品在全球范围内有着广泛的影响力，也为科幻文学的发展铺设了道路。阿西莫夫不仅是科幻文学的开创者之一，也是理性主义和科学进步的坚定支持者。</p>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasClarke" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasLabel">阿瑟·克拉克个人简介</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>阿瑟·克拉克是英国著名的科幻作家、发明家和未来学家，广泛认为是20世纪最伟大的科幻作家之一。他的作品跨越了科学幻想、科普和未来学等多个领域，特别以其对科技进步的深入洞察和对人类未来的思考而著称。克拉克的文学创作融合了先进的科学知识和哲学思辨，推动了科幻文学的边界。</p>
+
+      <p>克拉克最著名的作品之一是《2001太空漫游》（1968年），这部作品不仅在科幻文学史上占有重要地位，也成为了20世纪最具影响力的文化作品之一。该书原本由克拉克和电影导演斯坦利·库布里克共同构思，并由克拉克写成小说。作品探讨了人类与外星文明的接触、人工智能的未来以及人类进化的潜力，涉及哲学、宗教和科技的深刻主题。《2001太空奥德赛》通过其非线性的叙事方式、深刻的象征意义以及开创性的科学设想，成为了全球科幻迷和学者的重要讨论对象。</p>
+
+      <p>克拉克的作品不仅在文学界取得了巨大影响力，也在电影、电视、甚至科技发展等多个领域产生了广泛的影响。他的作品挑战了读者对人类文明未来的预想，并推动了科幻文学从传统的冒险故事向更深层次的社会、伦理和哲学探索发展。</p>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="offcanvasHein" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasLabel">罗伯特·海因莱因个人简介</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>罗伯特·A·海因莱因是美国著名的科幻作家，被誉为“黄金时代科幻文学的奠基人之一”。他的作品涉及广泛的主题，从政治、社会结构到个人自由、科技进步等，通常充满了社会批判与哲学探讨。海因莱因的作品风格多样，从军事科幻到未来社会的乌托邦与反乌托邦，甚至深入探讨人类心理与文化的演变。</p>
+
+      <p>海因莱因的代表作包括《星船伞兵》（Starship Troopers）、《异乡异客》（Stranger in a Strange Land）、《老人与海》（The Moon is a Harsh Mistress）等。其中，《星船伞兵》探讨了军国主义、责任和公民义务，而《异乡异客》则关注人类身份与文化认同，成为了反叛文化的象征。《老人与海》则通过对月球殖民的设想，深入探讨了自由、革命与社会秩序的关系。海因莱因在作品中常常挑战传统的政治观念与社会规范，他的思想有时被视为自由主义和个人主义的代表。</p>
+
+      <p>海因莱因的写作风格具有高度的自信和冒险精神，他的作品不仅对后来的科幻作家产生了深远影响，也在科幻文学中推动了对人性、技术和社会组织的更为复杂的探讨。他被认为是科幻文学史上最具影响力的作家之一，其作品至今仍对许多读者和创作者产生着深远的影响。</p>
+    </div>
+  </div>
+
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner hover-zoom1" style="margin-top: 50px;">
+      <div class="carousel-item active">
+        <img src="images/三体1.png" class="bd-placeholder-img" width="94%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false" style="margin-left: 40px; margin-right: 40px;">
+        <div class="container">
+          <div class="carousel-caption">
+            <p><a class="btn btn-lg btn-primary" href="三体.html">了解更多</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/沙丘.png" class="bd-placeholder-img" width="94%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false" style="margin-left: 40px; margin-right: 40px;">
+        <div class="container">
+          <div class="carousel-caption">
+            <p><a class="btn btn-lg btn-primary" href="沙丘.html">了解更多</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/星际穿越.png" class="bd-placeholder-img" width="94%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false" style="margin-left: 40px; margin-right: 40px;">
+        <div class="container">
+          <div class="carousel-caption">
+            <p><a class="btn btn-lg btn-primary" href="星际穿越.html">了解更多</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row" id="authors-id">
+      <div class="container my-5">
+        <div class="p-5 text-center bg-body-tertiary rounded-3 hover-zoom">
+          <h1 class="text-body-emphasis">20世纪科幻三巨头</h1>
+          <p class="lead">
+            20世纪有三位重要的科幻作家，分别是艾萨克·阿西莫夫，阿瑟·克拉克和罗伯特·海因莱因。他们被认为是推动现代科幻文学发展的重要人物，对20世纪的科幻文学和文化产生了深远的影响。          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 hover-zoom">
+        <img class="bd-placeholder-img rounded-circle zoom-image" src="images/阿西莫夫.png" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <h3 class="fw-normal">艾萨克·阿西莫夫</h3>
+        <p>阿西莫夫是一个科学与科幻的双重大师。他的作品以理性主义和科学思想为核心，尤其擅长描绘未来社会的复杂体系。</p>
+        <p><a class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAsimov" aria-controls="offcanvasAsimov">查看介绍 &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 hover-zoom">
+        <img class="bd-placeholder-img rounded-circle zoom-image" src="images/克拉克.png" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <h3 class="fw-normal">阿瑟·克拉克 </h3>
+        <p>克拉克是“科幻预言家”，他以对未来科技的精确预测和宇宙探险的描绘而闻名。他的作品常常融合了科学细节和深刻的哲学思考。</p>
+        <p><a class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasClarke" aria-controls="offcanvasClarke">查看介绍 &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 hover-zoom">
+        <img class="bd-placeholder-img rounded-circle zoom-image" src="images/海因莱因.png" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <h3 class="fw-normal">罗伯特·海因莱因</h3>
+        <p>被誉为“硬科幻之父”，海因莱因的作品以硬科幻和社会哲学的结合而闻名，他在性别、政治、个人自由等问题上有独到见解。</p>
+        <p><a class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasHein" aria-controls="offcanvasHein">查看介绍 &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+    <div class="container my-5 hover-zoom">
+      <div class="p-5 text-center bg-body-tertiary rounded-3">
+        <h1 class="text-body-emphasis">科幻小说</h1>
+        <p class="lead">
+          科幻小说（Science Fiction）是一种以科学和技术为核心要素的文学类型，通常通过虚构的情节探索未来世界、外星文明、宇宙奥秘、技术进步对社会和个体的影响。它是结合科学推测与文学想象的产物，被认为是最能激发人类想象力的文学形式之一。</p>
+        </div>
+    </div>
+
+    <div class="row featurette hover-zoom1">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">三体 <span class="text-body-secondary">Three Body</span></h2>
+        <p class="lead">《三体》是中国科幻作家刘慈欣的代表作，被誉为中国科幻文学的里程碑之一，也是现代科幻小说的经典之作。全书分为三部曲：《三体》、《三体Ⅱ：黑暗森林》和《三体Ⅲ：死神永生》。这部作品通过对宇宙、文明和人性的深刻描写，引发了全球范围内的关注，并获得了国际权威奖项雨果奖。</p>
+        <p class="lead"></p>
+        <p class="lead">（图片带有缩放动效，点击图片可跳转）</p>
+      </div>
+      <div class="col-md-5 text-center">
+        <a href="三体.html">
+          <img src="images/三体2.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="320" height="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false" style="margin-top: 80px;">
+        </a>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette hover-zoom1">
+      <div class="col-md-7 order-md-2 featurette-text1">
+        <h2 class="featurette-heading fw-normal lh-1">银河帝国 <span class="text-body-secondary">The Galactic Empire Series</span></h2>
+        <p class="lead">《银河帝国》是美国著名科幻作家艾萨克·阿西莫夫（Isaac Asimov）的重要系列作品之一。该系列是阿西莫夫“未来史”设定的一部分，与《机器人》系列和《基地》系列共同构建了一个庞大的科幻宇宙。故事围绕人类在银河系扩张和统治的过程展开，描绘了未来几千年的银河帝国历史。</p>
+        <p class="lead">
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <a href="银河帝国.html">
+          <img src="images/银河帝国.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="350" height="350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </a>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="container my-5 hover-zoom">
+      <div class="p-5 text-center bg-body-tertiary rounded-3">
+        <h1 class="text-body-emphasis">科幻电影</h1>
+        <p class="lead">
+          科幻电影是一种通过想象的科学技术、未来社会或宇宙奇观来构建故事情节的电影类型。这类电影结合科学与艺术，通过视觉特效和故事探索未知领域，通常反映人类对未来的憧憬和对科技的思考。</p>
+      </div>
+    </div>
+    <div class="row featurette hover-zoom1">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">星际穿越 <span class="text-body-secondary">Interstellar</span></h2>
+        <p class="lead">《星际穿越》是一部由克里斯托弗·诺兰（Christopher Nolan）执导、2014年上映的科幻电影，被广泛认为是现代科幻电影的经典之作。影片以壮观的视觉特效、深刻的情感描写和对科学的严谨态度而著称。</p>
+        <p class="lead"> 在未来，地球遭遇严重的生态危机，农作物减产，人类濒临灭绝。前宇航员库珀在一次意外中发现了一个秘密的NASA项目，目的是通过虫洞寻找适宜人类居住的星球。
+    
+          库珀加入了一个科学家团队，穿越虫洞前往一个遥远的星系，在那里的多个星球上寻找希望。然而，由于虫洞和黑洞的时间膨胀效应，他与地球上的家人（尤其是女儿墨菲）经历了时间上的分离和痛苦。
+          
+          最终，库珀发现了人类未来命运的关键，并通过自己与女儿的深厚情感完成了一次不可思议的传递，帮助人类找到了解决危机的办法。</p>
+      </div>
+      <div class="col-md-5 text-center">
+        <a href="星际穿越.html">
+          <img src="images/星际穿越1.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="320" height="320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false" style="margin-top: 80px;">
+        </a>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette hover-zoom1">
+      <div class="col-md-7 order-md-2 featurette-text">
+        <h2 class="featurette-heading fw-normal lh-1">沙丘<span class="text-body-secondary">Dune</span></h2>
+        <p class="lead">《沙丘》是美国科幻作家弗兰克·赫伯特（Frank Herbert）创作的同名小说改编的电影，讲述了发生在未来宇宙中的权力斗争、生态问题、宗教信仰与个人成长的史诗故事。这部作品被认为是科幻文学的巅峰之作，电影版同样在视觉和叙事上具有极高的影响力。</p>
+        <p class="lead">在遥远的未来，人类文明已经扩展到了银河系各个角落，形成了一个庞大的帝国体系。帝国的统治者是一位名叫帝国皇帝的皇帝，他的权力来自于一种叫做“香料”的物质，这种物质在宇宙中非常稀有，具有强大的药用和心灵扩展效果。
+
+          保罗·厄崔迪所在的厄崔迪家族被皇帝指定接管沙丘星，从而卷入一场由皇帝、竞争家族哈克南家族、以及当地土著费雷曼人之间复杂的权力斗争。保罗不仅肩负着家族存亡的重任，还逐渐意识到自己可能是预言中的“救世主”，注定带领沙丘星及其人民走向未来。
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <a href="沙丘.html">
+          <img src="images/沙丘1.png" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="350" height="350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </a>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="container my-5 hover-zoom">
+      <div class="p-5 text-center bg-body-tertiary rounded-3">
+        <h1 class="text-body-emphasis">愿你遨游星海，归来仍是少年！</h1>
+      </div>
+    </div>
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container hover-zoom2">
+    <p class="text-center"><a href="#">回到顶部</a></p>
+  </footer>
+</main>
+<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // 显示 Toast 消息
+  const toastTrigger = document.getElementById('liveToast');
+  const toast = new bootstrap.Toast(toastTrigger);
+  toast.show();
+</script>
+
+    </body>
+</html>
