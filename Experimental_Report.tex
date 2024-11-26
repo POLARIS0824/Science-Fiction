@@ -1,0 +1,325 @@
+\documentclass[supercite]{Experimental_Report}
+
+\title{~~~~~~新生实践课~~~~~~}
+\author{康耀燃}
+\school{计算机科学与技术学院}
+\classnum{CS2403}
+\stunum{U202414596}
+\instructor{李平} % 李平、孙伟平、范晔斌、陈加忠
+\date{2024年11月25日}
+
+\usepackage{algorithm, multirow}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{mathtools}
+\usepackage{subcaption}
+\usepackage{xltxtra} %提供了针对XeTeX的改进并且加入了XeTeX的LOGO, 自动调用xunicode宏包(提供Unicode字符宏)
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{pgfplots}
+%\usepackage{enumerate}
+
+\pgfplotsset{compat=1.16}
+
+\newcommand{\cfig}[3]{
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=#2\textwidth]{images/#1.tikz}
+    \caption{#3}
+    \label{fig:#1}
+  \end{figure}
+}
+
+\newcommand{\sfig}[3]{
+  \begin{subfigure}[b]{#2\textwidth}
+    \includegraphics[width=\textwidth]{images/#1.tikz}
+    \caption{#3}
+    \label{fig:#1}
+  \end{subfigure}
+}
+
+\newcommand{\xfig}[3]{
+  \begin{figure}[htb]
+    \centering
+    #3
+    \caption{#2}
+    \label{fig:#1}
+  \end{figure}
+}
+
+\newcommand{\rfig}[1]{\autoref{fig:#1}}
+\newcommand{\ralg}[1]{\autoref{alg:#1}}
+\newcommand{\rthm}[1]{\autoref{thm:#1}}
+\newcommand{\rlem}[1]{\autoref{lem:#1}}
+\newcommand{\reqn}[1]{\autoref{eqn:#1}}
+\newcommand{\rtbl}[1]{\autoref{tbl:#1}}
+
+\algnewcommand\Null{\textsc{null }}
+\algnewcommand\algorithmicinput{\textbf{Input:}}
+\algnewcommand\Input{\item[\algorithmicinput]}
+\algnewcommand\algorithmicoutput{\textbf{Output:}}
+\algnewcommand\Output{\item[\algorithmicoutput]}
+\algnewcommand\algorithmicbreak{\textbf{break}}
+\algnewcommand\Break{\algorithmicbreak}
+\algnewcommand\algorithmiccontinue{\textbf{continue}}
+\algnewcommand\Continue{\algorithmiccontinue}
+\algnewcommand{\LeftCom}[1]{\State $\triangleright$ #1}
+
+\newtheorem{thm}{定理}[section]
+\newtheorem{lem}{引理}[section]
+
+\colorlet{shadecolor}{black!15}
+
+\theoremstyle{definition}
+\newtheorem{alg}{算法}[section]
+
+\def\thmautorefname~#1\null{定理~#1~\null}
+\def\lemautorefname~#1\null{引理~#1~\null}
+\def\algautorefname~#1\null{算法~#1~\null}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\pagenumbering{Roman}
+
+\tableofcontents[level=2]
+\clearpage
+
+\pagenumbering{arabic}
+
+\section{网页整体框架}
+该网页整体采用Twitter开源的前端框架bootstrap，目前有一个主页面和六个子页面，以及三个offcanvas（即侧边栏），网页总体在交互上强调呼吸感，因此每个块都可以做到移动鼠标后的缩放动画（可自行尝试感受效果），全程用到以下三种语言：
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{\theenumi)}
+	\item CSS    （动画及样式）
+	\item JavaScript    （具体逻辑）
+	\item HTML    （内容构建）
+\end{enumerate}
+
+以下是图片说明
+
+\begin{figure}[htb] % here top bottom
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{images/PixPin_2024-11-25_22-36-56.png}
+		\caption{网页整体框架}
+		\label{fig1-1}
+	\end{center}
+\end{figure}
+
+我的网页可以通过顶部的导航栏在不同页面之间切换，并且导航栏做出了同一类别的折叠效果。
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{images/PixPin_2024-11-25_22-46-21.png}
+		\caption{网页导航栏}
+		\label{fig1-2}
+	\end{center}
+\end{figure}
+
+\newpage
+
+\section{主页设计}
+
+我的主页顶部是导航栏，用来实现各个页面之间的跳转。下部是一组轮播图，图片根据设定的周期自行滚动，也可按左右按钮切换图片，点击每张图片底部的按钮可以跳转到对应的介绍界面。主页做出了亮色模式和暗色模式，可点击右下角按钮进行切换。此外，每次进入主页会有一个气泡提醒，提醒用户先点击：“关于”界面查看网页介绍。
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{images/PixPin_2024-11-25_21-56-25.png}
+		\caption{亮色模式}
+		\label{fig2-1}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{images/PixPin_2024-11-25_21-56-35.png}
+		\caption{暗色模式}
+		\label{fig2-1}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{images/PixPin_2024-11-25_23-00-38.png}
+		\caption{气泡通知代码实现}
+		\label{fig2-1}
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{images/PixPin_2024-11-25_23-01-22.png}
+		\caption{导航栏部分代码}
+		\label{fig2-1}
+	\end{center}
+\end{figure}
+
+我并未采用Dreamweaver，而是使用了visual studio code直接进行编程。因空间有限，在此截取部分代码。
+
+
+以下是部分代码实现：
+
+除此之外，我的主页还包括大量对科幻作者，科幻小说以及科幻电影的介绍。每一个板块都做出了移动鼠标的缩放动画，以及点击图片跳转详情的功能。
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/PixPin_2024-11-25_21-59-27.png}
+    \caption{科幻作家介绍}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\newpage
+
+\section{分页面设计}
+
+我的网站总计有六个子页面，包括一个对网页的介绍，两个科幻小说介绍，分别是三体和银河帝国，两个科幻电影介绍，分别是星际穿越和沙丘，两个科幻作家介绍，分别是刘慈欣和20世纪科幻三巨头。其中，对于20世纪科幻三巨头的介绍整合到了主页面内，并且采用了offcanvas（侧边栏）的形式呈现。
+
+\subsection{科幻小说之三体介绍}
+
+这个子页面顶部是与主页保持一致的导航栏，用于方便的在不同页面之间跳转。然后是欢迎界面，包括对三体系列小说的简要介绍。接着是对三部小说的分别介绍。该页面的每一个板块也都具有移动鼠标缩放的动效。
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/Screenshot_20241126-142424.png}
+    \caption{科幻小说三体介绍}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{PixPin_2024-11-26_18-03-02.png}
+    \caption{代码节选}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\subsection{科幻小说之银河帝国介绍}
+
+这个子页面与第一个子页面基本保持了一致的设计风格，欢迎板块略有不同，实现了阴影效果，更加美观。并且添加了指向维基百科和百度百科的超链接，做成了外观不同的按钮。最后分成三部分对该系列小说进行了介绍，每一个板块同样有缩放动效。
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/Screenshot_20241126-144216.png}
+    \caption{科幻小说银河帝国介绍}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{PixPin_2024-11-26_18-09-23.png}
+    \caption{缩放动画CSS代码实现}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\subsection{科幻电影之星际穿越介绍}
+
+该子页面的主体内嵌了一个YouTube上星际穿越的预告片，可在网页上实现视频调速，进度拖动等功能。但因相关原因，只有在网络良好时才可加载出来。在视频下方有对电影详细的介绍。
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/Screenshot_20241126-144959.png}
+    \caption{科幻电影星际穿越介绍}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{PixPin_2024-11-26_18-10-35.png}
+    \caption{内嵌YouTube视频代码实现}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\subsection{科幻电影之沙丘介绍}
+
+该子网页与星际穿越的介绍页面保持了风格与结构上的统一，并且因为沙丘是由小说改编而来，特加入了对原著小说的介绍。
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/Screenshot_20241126-150344.png}
+    \caption{科幻电影沙丘介绍}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{PixPin_2024-11-26_18-11-23.png}
+    \caption{沙丘情节介绍代码实现}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\subsection{科幻作家之刘慈欣介绍}
+
+该子页面是个人认为最为炫酷的页面，利用CSS做出了字体浮动显示和发光效果，接着对刘慈欣生平和代表作品进行了介绍。
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/Screenshot_20241126-150529.png}
+    \caption{科幻作家刘慈欣介绍}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{PixPin_2024-11-26_18-12-15.png}
+    \caption{关键帧动画CSS代码实现}
+    \label{fig:enter-label}
+\end{figure}
+
+\section{网页设计小结}
+
+在这次网页设计的学习过程中，我结合了自己对科幻的热爱，制作了一个科幻主题的网页，深刻感受到网页制作的复杂性与趣味性。刚开始时，我对HTML和CSS等技术感到有些陌生，但随着学习的深入，我逐渐意识到，制作一个精美且富有创意的网页需要高度的细致与耐心。在设计过程中，我使用了 \textbf{Bootstrap框架} 来快速构建响应式布局，这不仅提高了开发效率，还确保了网页在不同设备上的兼容性和自适应性。通过Bootstrap的栅格系统和预设样式，我能够快速搭建网页的基础结构，并将更多精力集中在细节优化上。
+
+此外，为了增强网页的交互性和视觉效果，我利用 \textbf{CSS} 实现了字体浮现动画。通过使用 \texttt{@keyframes} 动画关键帧和 \texttt{transition} 属性，我让网页中的标题和文字随着用户的浏览产生渐变浮现效果，这不仅提升了网页的动态感，也为科幻主题增添了一些未来感和科技感。特别是在设计过程中，遇到字体和图片无法正确显示、布局错乱等问题时，我通过查阅大量文献和教程，逐步解决了这些技术难题。每次调整和修复后，看到网页逐步成型，内心的成就感和满足感无与伦比。
+
+通过这次实训，我不仅将课本中学到的知识应用到了实际项目中，而且还学会了如何利用现代化的前端开发工具与框架来提升开发效率和效果。这让我更加深刻地理解到，网页设计不仅是技术的体现，更是艺术和创意的融合。未来，我将继续保持对网页设计的兴趣，探索更多技术与设计的可能性，争取将自己的网页作品做到更加完美。特别感谢指导教师的悉心指导，是他们的教诲让我在这一过程中不断进步，提升了自己的专业技能和设计眼光。
+
+
+\newpage
+
+\section{课程的收获和建议}
+
+这门课让我收获颇丰，整体上感觉像是MIT的经典课程The Missing Semester，为我提供了很多实际的计算机基础和技能。对我而言，这门课程更像是一个引子，让我了解到如此多有用的工具及其基本的使用方法。
+
+\subsection{计算机基础知识}
+
+了解计算机基础知识对一个计算机专业的学生至关重要。首先，它帮助我们了解计算机的基本原理和组成，从而更好地理解计算机的工作方式。其次，掌握计算机的基本操作技能，如操作系统的使用、文件管理、网络连接等，这些技能在日常生活和工作中非常有用。最后，学习计算机基础为深入学习计算机科学和相关领域奠定了坚实的基础。这一部分尽管基础无比，但重要性却是不可忽视。不过希望能添加更多动画或图片，相信会更加有趣。
+
+\subsection{Word、PowerPoint及LaTeX}
+
+LaTeX是一款非常强大的排版软件，特别适合学术写作和复杂文档的排版。通过学习LaTeX，我掌握了基本的文档格式化技巧，这对我未来的学术研究和写作非常有帮助。然而，由于课程时间有限，我只学到了LaTeX的基础操作，课后再想使用时，仍然感到有些困难。因此，我建议课程可以更加聚焦于常用的技能，其他高级技巧可以通过课外资源进行补充，供有兴趣的同学深入学习。
+
+此外，Word和PowerPoint作为常用的办公工具，也是我们日常学习和工作中必不可少的工具。在Word的使用中，我学会了如何高效地排版、插入图表、以及使用样式和模板进行文档格式化；PowerPoint则帮助我提升了演示文稿的制作能力，通过动画效果、图形设计和多媒体插入，使我的展示更加生动和专业。虽然课程的重点是LaTeX，但在日常学习中，我发现Word和PowerPoint的运用更加频繁，它们的熟练使用也是非常重要的技能。
+
+\subsection{编程工具Python}
+
+Python是一种简洁且功能强大的编程语言，其语法易学易懂，非常适合初学者。通过这门课程，我了解了Python的基础知识，但由于课时较少，我并没有学习到针对面向对象编程的思想精髓。因此，我建议以后可以增加更多的课时，深入讲解Python的核心概念和实用技巧，帮助我们更好地理解和应用Python。
+
+\subsection{版本管理软件Git}
+
+Git是一个非常实用的版本管理工具，学习它对提高开发效率和团队协作有着重要的意义。在课程中，我学会了如何创建自己的Git仓库，如何将代码推送到仓库，如何管理和同步代码。加入联创社团后，我频繁使用Git进行项目管理，这让我更加深刻地体会到Git的巨大作用。课后，我还注册了GitHub账号，学会了如何使用它进行代码托管和版本控制。因此，我认为这门课的学习非常有必要，它为我今后的编程和团队合作打下了坚实的基础。
+
+\subsection{网页制作软件Dreamweaver}
+
+在网页制作方面，我使用的是 \textbf{Visual Studio Code}，而没有使用Dreamweaver。这是一款非常流行且强大的代码编辑器，适合前端开发和网页制作。与Dreamweaver不同，Visual Studio Code给了我更多的自由度和灵活性，支持多种插件和扩展，帮助我高效地编写HTML、CSS和JavaScript代码。通过这次课程的学习，我掌握了网页制作的基本流程，并使用VS Code完成了网页的设计与开发。虽然课程中只讲解了基础的网页制作知识，但结合VS Code的功能，我能够更轻松地进行调试和优化。建议未来课程可以结合一些前端框架（如Bootstrap）和更多的实践案例，帮助我们更好地掌握网页设计的技巧和流程。 
+
+\nocite{*} %% 作用是不对文献进行引用，但可以生成文献列表
+
+%\bibliographystyle{HustGraduPaper}
+%\bibliography{HustGraduPaper}
+
+\end{document}
